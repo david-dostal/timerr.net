@@ -1,0 +1,72 @@
+$row-max-width: 50rem;
+$row-padding-tight: 0.5rem;
+$container-padding-tight: 0.5rem;
+$row-padding-full: 0.5rem 1rem;
+$container-padding-full: 1rem;
+
+$container-padding-full-half: 0.5rem;
+$container-padding-tight-half: 0.25rem;
+
+@mixin clear() {
+  box-sizing: border-box;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.container {
+  margin: 0;
+  padding: $container-padding-tight;
+}
+
+.row {
+  padding: $row-padding-tight;
+}
+
+.column {
+  max-width: $row-max-width;
+  margin: auto;
+}
+
+@media (min-width: 20rem) {
+  .container {
+    padding: $container-padding-full;
+  }
+
+  .row {
+    padding: $row-padding-full;
+  }
+}
+
+.menu {
+  float: left;
+}
+
+.logo {
+  float: left;
+}
+
+.navigation {
+  @include clear();
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 5rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

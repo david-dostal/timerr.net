@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+    <meta charset="utf-8"/>
+    <title>Timerr.net</title>
+    <link rel="stylesheet" href="styles/styles.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/ie.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/polyfills.min.js"></script>
+    <script type="text/javascript" src="js/common/time-functions.js"></script>
+    <script type="text/javascript" src="js/common/google-maps-timezones.js"></script>
+    <script type="text/javascript" src="js/apps/clock.js"></script>
+    <script type="text/javascript" src="js/gui/clock-gui.js"></script>
+</head>
+<body class="page">
+<header class="header row">
+    <nav class="navigation column">
+        <h1 class="logo"><a href="index.html" class="container">timerr.net</a></h1>
+        <ul class="menu">
+            <li><a href="index.html" class="container">Stopwatch</a></li>
+            <li><a href="timer.html" class="container">Timer</a></li>
+            <li><a href="alarm.html" class="container">Alarm</a></li>
+            <li><a href="clock.html" class="container">Clock</a></li>
+            <li><a href="about.html" class="container">About</a></li>
+            <li><a href="contact-us.html" class="container">Contact us</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="container">
+    <div class="row column">
+        <div class="timer">
+            <time datetime="2018-03-15T13:21:02" class="timer-time panel-primary container" id="timer-time">13:21:02</time>
+        </div>
+        <div class="control-group">
+            <div class="control-wrapper">
+                <select class="control container" id="timezone-select">
+                    <option disabled selected>Select a timezone:</option>
+                    <!--
+                    <optgroup label="Africa">
+                        <option value="5.19,-4.02">Abidjan, Côte d'Ivoire</option>
+                        <option value="5.33,-0.13">Accra, Ghana</option>
+                        <option value="36.47,3.03">Algiers, Algeria</option>
+                        <option value="11.51,-15.35">Bissau, Guinea-Bissau</option>
+                        <option value="30.03,31.15">Cairo, Egypt</option>
+                        <option value="33.39,-7.35">Casablanca, Morocco</option>
+                        <option value="35.53,-5.19">Ceuta, Spain</option>
+                        <option value="27.09,-13.12">El Aaiún, Western Sahara</option>
+                        <option value="-26.15,28.0">Johannesburg, South Africa</option>
+                        <option value="4.51,31.37">Juba, South Sudan</option>
+                        <option value="15.36,32.32">Khartoum, Sudan</option>
+                        <option value="6.27,3.24">Lagos, Nigeria</option>
+                        <option value="-25.58,32.35">Maputo, Mozambique</option>
+                        <option value="6.18,-10.47">Monrovia, Liberia</option>
+                        <option value="-1.17,36.49">Nairobi, Kenya</option>
+                        <option value="12.07,15.03">N'Djamena, Chad</option>
+                        <option value="0.2,6.44">São Tomé, São Tomé and Príncipe</option>
+                        <option value="32.54,13.11">Tripoli, Libya</option>
+                        <option value="36.48,10.11">Tunis, Tunisia</option>
+                        <option value="-22.34,17.06">Windhoek, Namibia</option>
+                    </optgroup>
+                    <optgroup label="America">
+                        <option value="51.52,0.48">Adak (Alaska), United States</option>
+                        <option value="61.13,0.05">Anchorage, United States</option>
+                        <option value="-7.12,-48.12">Araguaína, Brazil</option>
+                        <option value="-34.36,-58.27">Buenos Aires, Argentina</option>
+                        <option value="-28.28,-65.47">Catamarca, Argentina</option>
+                        <option value="-31.24,-64.11">Córdoba, Argentina</option>
+                        <option value="-24.11,-65.18">Jujuy, Argentina</option>
+                        <option value="-29.26,-66.51">La Rioja, Argentina</option>
+                        <option value="-32.53,-68.49">Mendoza, Argentina</option>
+                        <option value="-51.38,-69.13">Río Gallegos, Argentina</option>
+                        <option value="-24.47,-65.25">Salta, Argentina</option>
+                        <option value="-31.32,-68.31">San Juan, Argentina</option>
+                        <option value="-33.19,-66.21">San Luis, Argentina</option>
+                        <option value="-26.49,-65.13">Tucumán, Argentina</option>
+                        <option value="-54.48,-68.18">Ushuaia, Argentina</option>
+                        <option value="-25.16,-57.4">Asunción, Paraguay</option>
+                        <option value="48.45,0.31">Atikokan, Canada</option>
+                        <option value="-12.59,-38.31">Bahia, Brazil</option>
+                        <option value="20.48,-105.15">Bahía de Banderas, Mexico</option>
+                        <option value="13.06,-59.37">Barbados</option>
+                        <option value="-1.27,-48.29">Belém, Brazil</option>
+                        <option value="17.3,-88.12">Belize</option>
+                        <option value="51.25,-57.07">Blanc-Sablon, Canada</option>
+                        <option value="2.49,-60.4">Boa Vista, Brazil</option>
+                        <option value="4.36,-74.05">Bogotá, Colombia</option>
+                        <option value="43.36,0.49">Boise (Idaho), United States</option>
+                        <option value="69.06,0.5">Cambridge Bay, Canada</option>
+                        <option value="-20.27,-54.37">Campo Grande, Brazil</option>
+                        <option value="21.05,-86.46">Cancún, Mexico</option>
+                        <option value="10.3,-66.56">Caracas, Venezuela</option>
+                        <option value="4.56,-52.2">Cayenne, French Guiana</option>
+                        <option value="41.51,0.0">Chicago, United States</option>
+                        <option value="28.38,-106.05">Chihuahua, Mexico</option>
+                        <option value="9.56,-84.05">Costa Rica</option>
+                        <option value="49.06,-116.31">Creston, Canada</option>
+                        <option value="-15.35,-56.05">Cuiabá, Brazil</option>
+                        <option value="12.11,-69.0">Curaçao</option>
+                        <option value="76.46,-18.4">Danmarkshavn, Greenland</option>
+                        <option value="64.04,-139.25">Dawson, Canada</option>
+                        <option value="59.46,-120.14">Dawson Creek, Canada</option>
+                        <option value="39.44,0.21">Denver, United States</option>
+                        <option value="42.19,0.53">Detroit, United States</option>
+                        <option value="53.33,-113.28">Edmonton, Canada</option>
+                        <option value="-6.4,-69.52">Eirunepé, Brazil</option>
+                        <option value="13.42,-89.12">El Salvador</option>
+                        <option value="58.48,-122.42">Fort Nelson, Canada</option>
+                        <option value="-3.43,-38.3">Fortaleza, Brazil</option>
+                        <option value="46.12,-59.57">Glace Bay, Canada</option>
+                        <option value="64.11,-51.44">Nuuk (Godthåb), Greenland</option>
+                        <option value="53.2,-60.25">Goose Bay, Canada</option>
+                        <option value="21.28,-71.08">Grand Turk, Turks and Caicos Islands</option>
+                        <option value="14.38,-90.31">Guatemala</option>
+                        <option value="-2.1,-79.5">Guayaquil, Ecuador</option>
+                        <option value="6.48,-58.1">Guyana</option>
+                        <option value="44.39,-63.36">Halifax, Canada</option>
+                        <option value="23.08,-82.22">Havana, Cuba</option>
+                        <option value="29.04,-110.58">Hermosillo, Mexico</option>
+                        <option value="39.46,0.06">Indianapolis, United States</option>
+                        <option value="41.17,0.45">Knox (Indiana), United States</option>
+                        <option value="38.22,0.32">Marengo (Indiana), United States</option>
+                        <option value="38.29,0.31">Petersburg (Indiana), United States</option>
+                        <option value="37.57,0.11">Tell City (Indiana), United States</option>
+                        <option value="38.44,0.52">Vevay (Indiana), United States</option>
+                        <option value="38.4,0.38">Vincennes (Indiana), United States</option>
+                        <option value="41.03,0.05">Winamac (Indiana), United States</option>
+                        <option value="68.2,0.59">Inuvik, Canada</option>
+                        <option value="63.44,-68.28">Iqaluit, Canada</option>
+                        <option value="17.58,0.05">Jamaica</option>
+                        <option value="58.18,0.07">Juneau (Alaska), United States</option>
+                        <option value="38.15,0.15">Louisville (Kentucky), United States</option>
+                        <option value="36.49,0.47">Monticello (Kentucky), United States</option>
+                        <option value="-16.3,-68.09">La Paz, Bolivia</option>
+                        <option value="-12.03,-77.03">Lima, Peru</option>
+                        <option value="34.03,0.08">Los Angeles, United States</option>
+                        <option value="-9.4,-35.43">Maceió, Brazil</option>
+                        <option value="12.09,-86.17">Managua, Nicaragua</option>
+                        <option value="-3.08,-60.01">Manaus, Brazil</option>
+                        <option value="14.36,-61.05">Martinique</option>
+                        <option value="25.5,-97.3">Matamoros, Mexico</option>
+                        <option value="23.13,-106.25">Mazatlán, Mexico</option>
+                        <option value="45.06,0.28">Menominee (Michigan), United States</option>
+                        <option value="20.58,-89.37">Mérida, Mexico</option>
+                        <option value="55.07,0.37">Metlakatla (Alaska), United States</option>
+                        <option value="19.24,-99.09">Mexico City, Mexico</option>
+                        <option value="47.03,-56.2">Saint Pierre and Miquelon</option>
+                        <option value="46.06,-64.47">Moncton, Canada</option>
+                        <option value="25.4,-100.19">Monterrey, Mexico</option>
+                        <option value="-34.54,0.33">Montevideo, Uruguay</option>
+                        <option value="25.05,-77.21">Nassau, Bahamas</option>
+                        <option value="40.42,0.51">New York, United States</option>
+                        <option value="49.01,-88.16">Nipigon, Canada</option>
+                        <option value="64.3,0.04">Nome (Alaska), United States</option>
+                        <option value="-3.51,-32.25">Fernando de Noronha, Brazil</option>
+                        <option value="47.15,0.51">Beulah (North Dakota), United States</option>
+                        <option value="47.06,0.59">Center (North Dakota), United States</option>
+                        <option value="46.5,0.42">New Salem (North Dakota), United States</option>
+                        <option value="29.34,-104.25">Ojinaga, Mexico</option>
+                        <option value="8.58,-79.32">Panama</option>
+                        <option value="66.08,-65.44">Pangnirtung, Canada</option>
+                        <option value="5.5,-55.1">Paramaribo, Suriname</option>
+                        <option value="33.26,0.54">Phoenix, United States</option>
+                        <option value="18.32,-72.2">Port-au-Prince, Haiti</option>
+                        <option value="10.39,-61.31">Port of Spain, Trinidad and Tobago</option>
+                        <option value="-8.46,-63.54">Porto Velho, Brazil</option>
+                        <option value="18.28,0.06">Puerto Rico</option>
+                        <option value="-53.09,-70.55">Punta Arenas, Chile</option>
+                        <option value="48.43,-94.34">Rainy River, Canada</option>
+                        <option value="62.49,0.0">Rankin Inlet, Canada</option>
+                        <option value="-8.03,-34.54">Recife, Brazil</option>
+                        <option value="50.24,-104.39">Regina, Canada</option>
+                        <option value="74.41,0.44">Resolute, Canada</option>
+                        <option value="-9.58,-67.48">Rio Branco, Brazil</option>
+                        <option value="-2.26,-54.52">Santarém, Brazil</option>
+                        <option value="-33.27,-70.4">Santiago, Chile</option>
+                        <option value="18.28,-69.54">Santo Domingo, Dominican Republic</option>
+                        <option value="-23.32,-46.37">São Paulo, Brazil</option>
+                        <option value="70.29,-21.58">Ittoqqortoormiit (Scoresbysund), Greenland</option>
+                        <option value="57.1,0.35">Sitka (Alaska), United States</option>
+                        <option value="47.34,-52.43">St. John's, Canada</option>
+                        <option value="50.17,-107.5">Swift Current, Canada</option>
+                        <option value="14.06,-87.13">Tegucigalpa, Honduras</option>
+                        <option value="76.34,-68.47">Qaanaaq (Thule), Greenland</option>
+                        <option value="48.23,-89.15">Thunder Bay, Canada</option>
+                        <option value="32.32,-117.01">Tijuana, Mexico</option>
+                        <option value="43.39,-79.23">Toronto, Canada</option>
+                        <option value="49.16,-123.07">Vancouver, Canada</option>
+                        <option value="60.43,-135.03">Whitehorse, Canada</option>
+                        <option value="49.53,-97.09">Winnipeg, Canada</option>
+                        <option value="59.32,0.49">Yakutat (Alaska), United States</option>
+                        <option value="62.27,-114.21">Yellowknife, Canada</option>
+                    </optgroup>
+                    <optgroup label="Antarctica">
+                        <option value="-66.17,110.31">Casey Station, Bailey Peninsula</option>
+                        <option value="-68.35,77.58">Davis Station, Vestfold Hills</option>
+                        <option value="-66.4,140.01">Dumont d'Urville Station, Terre Adélie</option>
+                        <option value="-54.3,158.57">Macquarie Island Station, Macquarie Island</option>
+                        <option value="-67.36,62.53">Mawson Station, Holme Bay</option>
+                        <option value="-64.48,-64.06">Palmer Station, Anvers Island</option>
+                        <option value="-67.34,-68.08">Rothera Station, Adelaide Island</option>
+                        <option value="-69.0,0.22">Syowa Station, East Ongul Island</option>
+                        <option value="-72.0,0.41">Troll Station, Queen Maud Land</option>
+                        <option value="-78.24,106.54">Vostok Station, Lake Vostok</option>
+                    </optgroup>
+                    <optgroup label="Asia">
+                        <option value="43.15,76.57">Almaty, Kazakhstan</option>
+                        <option value="31.57,35.56">Amman, Jordan</option>
+                        <option value="64.45,177.29">Anadyr, Russia</option>
+                        <option value="44.31,50.16">Aqtau, Kazakhstan</option>
+                        <option value="50.17,57.1">Aqtobe, Kazakhstan</option>
+                        <option value="37.57,58.23">Ashgabat, Turkmenistan</option>
+                        <option value="47.07,51.56">Atyrau (Guryev), Kazakhstan</option>
+                        <option value="33.21,44.25">Baghdad, Iraq</option>
+                        <option value="40.23,49.51">Baku, Azerbaijan</option>
+                        <option value="13.45,100.31">Bangkok, Thailand</option>
+                        <option value="53.22,83.45">Barnaul, Russia</option>
+                        <option value="33.53,35.3">Beirut, Lebanon</option>
+                        <option value="42.54,74.36">Bishkek, Kyrgyzstan</option>
+                        <option value="4.56,114.55">Brunei</option>
+                        <option value="52.03,113.28">Chita Zabaykalsky, Russia</option>
+                        <option value="48.04,114.3">Choibalsan, Mongolia</option>
+                        <option value="6.56,79.51">Colombo, Sri Lanka</option>
+                        <option value="33.3,36.18">Damascus, Syria</option>
+                        <option value="23.43,90.25">Dhaka, Bangladesh</option>
+                        <option value="-8.33,125.35">Dili, East Timor</option>
+                        <option value="25.18,55.18">Dubai, United Arab Emirates</option>
+                        <option value="38.35,68.48">Dushanbe, Tajikistan</option>
+                        <option value="35.07,33.57">Famagusta, Cyprus</option>
+                        <option value="31.3,34.28">Gaza Strip, Palestinian Territories</option>
+                        <option value="31.32,0.0">West Bank, Palestinian Territories</option>
+                        <option value="10.45,106.4">Ho Chi Minh City, Vietnam</option>
+                        <option value="22.17,114.09">Hong Kong SAR China</option>
+                        <option value="48.01,91.39">Khovd (Hovd), Mongolia</option>
+                        <option value="52.16,104.2">Irkutsk, Russia</option>
+                        <option value="-6.1,106.48">Jakarta, Indonesia</option>
+                        <option value="-2.32,140.42">Jayapura, Indonesia</option>
+                        <option value="31.46,0.5">Jerusalem</option>
+                        <option value="34.31,69.12">Kabul, Afghanistan</option>
+                        <option value="53.01,158.39">Kamchatka Peninsula, Russia</option>
+                        <option value="24.52,67.03">Karachi, Pakistan</option>
+                        <option value="27.43,85.19">Kathmandu, Nepal</option>
+                        <option value="62.39,0.23">Khandyga Tomponsky, Russia</option>
+                        <option value="22.32,88.22">Kolkata, India</option>
+                        <option value="56.01,92.5">Krasnoyarsk, Russia</option>
+                        <option value="3.1,101.42">Kuala Lumpur, Malaysia</option>
+                        <option value="1.33,110.2">Kuching, Malaysia</option>
+                        <option value="22.14,113.35">Macau SAR China</option>
+                        <option value="59.34,150.48">Magadan, Russia</option>
+                        <option value="-5.07,119.24">Makassar, Indonesia</option>
+                        <option value="14.35,121.0">Manila, Philippines</option>
+                        <option value="35.1,33.22">Nicosia, Cyprus</option>
+                        <option value="53.45,87.07">Novokuznetsk, Russia</option>
+                        <option value="55.02,82.55">Novosibirsk, Russia</option>
+                        <option value="55.0,73.24">Omsk, Russia</option>
+                        <option value="51.13,51.21">Oral, Kazakhstan</option>
+                        <option value="-0.02,109.2">Pontianak, Indonesia</option>
+                        <option value="39.01,125.45">Pyongyang, North Korea</option>
+                        <option value="25.17,51.32">Qatar</option>
+                        <option value="44.48,65.28">Kyzylorda, Kazakhstan</option>
+                        <option value="24.38,46.43">Riyadh, Saudi Arabia</option>
+                        <option value="46.58,142.42">Sakhalin, Russia</option>
+                        <option value="39.4,66.48">Samarkand, Uzbekistan</option>
+                        <option value="37.33,126.58">Seoul, South Korea</option>
+                        <option value="31.14,121.28">Shanghai, China</option>
+                        <option value="1.17,103.51">Singapore</option>
+                        <option value="67.28,153.43">Srednekolymsk, Russia</option>
+                        <option value="25.03,121.3">Taipei, Taiwan</option>
+                        <option value="41.2,69.18">Tashkent, Uzbekistan</option>
+                        <option value="41.43,44.49">Tbilisi, Georgia</option>
+                        <option value="35.4,51.26">Tehran, Iran</option>
+                        <option value="27.28,89.39">Thimphu, Bhutan</option>
+                        <option value="35.39,0.16">Tokyo, Japan</option>
+                        <option value="56.3,84.58">Tomsk, Russia</option>
+                        <option value="47.55,106.53">Ulaanbaatar (Ulan Bator), Mongolia</option>
+                        <option value="43.48,87.35">Ürümqi, China</option>
+                        <option value="64.33,0.37">Ust-Nera Oymyakonsky, Russia</option>
+                        <option value="43.1,131.56">Vladivostok, Russia</option>
+                        <option value="62.0,129.4">Yakutsk, Russia</option>
+                        <option value="16.47,96.1">Yangon (Rangoon), Burma</option>
+                        <option value="56.51,60.36">Yekaterinburg, Russia</option>
+                        <option value="40.11,44.3">Yerevan, Armenia</option>
+                    </optgroup>
+
+                    <optgroup label="Atlantic">
+                        <option value="37.44,-25.4">Azores, Portugal</option>
+                        <option value="32.17,-64.46">Bermuda</option>
+                        <option value="28.06,-15.24">Canary Islands, Spain</option>
+                        <option value="14.55,-23.31">Cape Verde</option>
+                        <option value="62.01,-6.46">Faroe Islands</option>
+                        <option value="32.38,-16.54">Madeira, Portugal</option>
+                        <option value="64.09,-21.51">Reykjavik, Iceland</option>
+                        <option value="-54.16,-36.32">South Georgia and the South Sandwich Islands</option>
+                        <option value="-51.42,-57.51">Stanley, Falkland Islands</option>
+                    </optgroup>
+                    <optgroup label="Australia">
+                        <option value="-34.55,138.35">Adelaide, Australia</option>
+                        <option value="-27.28,153.02">Brisbane, Australia</option>
+                        <option value="-31.57,141.27">Broken Hill, Australia</option>
+                        <option value="-39.56,143.52">Currie, Australia</option>
+                        <option value="-12.28,130.5">Darwin, Australia</option>
+                        <option value="-31.43,128.52">Eucla, Australia</option>
+                        <option value="-42.53,147.19">Hobart, Australia</option>
+                        <option value="-20.16,149.0">Lindeman Island, Australia</option>
+                        <option value="-31.33,159.05">Lord Howe Island, Australia</option>
+                        <option value="-37.49,144.58">Melbourne, Australia</option>
+                        <option value="-31.57,115.51">Perth, Australia</option>
+                        <option value="-33.52,151.13">Sydney, Australia</option>
+                    </optgroup>-->
+                    <optgroup label="Europe">
+                        <option value="52.22,4.54">Amsterdam, Netherlands</option>
+                        <option value="42.3,1.31">Andorra</option>
+                        <option value="46.21,48.03">Astrakhan, Russia</option>
+                        <option value="37.58,23.43">Athens, Greece</option>
+                        <option value="44.5,20.3">Belgrade, Serbia</option>
+                        <option value="52.3,13.22">Berlin, Germany</option>
+                        <option value="50.5,4.2">Brussels, Belgium</option>
+                        <option value="44.26,26.06">Bucharest, Romania</option>
+                        <option value="47.3,19.05">Budapest, Hungary</option>
+                        <option value="47.0,28.5">Chişinău, Moldova</option>
+                        <option value="55.4,12.35">Copenhagen, Denmark</option>
+                        <option value="53.2,-6.15">Dublin, Ireland</option>
+                        <option value="36.08,-5.21">Gibraltar</option>
+                        <option value="60.1,24.58">Helsinki, Finland</option>
+                        <option value="41.01,28.58">Istanbul, Turkey</option>
+                        <option value="54.43,20.3">Kaliningrad, Russia</option>
+                        <option value="50.26,30.31">Kiev, Ukraine</option>
+                        <option value="58.36,49.39">Kirov, Russia</option>
+                        <option value="38.43,-9.08">Lisbon, Portugal</option>
+                        <option value="51.3,0.3">London, United Kingdom</option>
+                        <option value="49.36,6.09">Luxembourg</option>
+                        <option value="40.24,-3.41">Madrid, Spain</option>
+                        <option value="35.54,14.31">Malta</option>
+                        <option value="53.54,27.34">Minsk, Belarus</option>
+                        <option value="43.42,7.23">Monaco</option>
+                        <option value="55.45,0.21">Moscow, Russia</option>
+                        <option value="59.55,10.45">Oslo, Norway</option>
+                        <option value="48.52,2.2">Paris, France</option>
+                        <option value="50.05,14.26">Prague, Czech Republic</option>
+                        <option value="56.57,24.06">Riga, Latvia</option>
+                        <option value="41.54,12.29">Rome, Italy</option>
+                        <option value="53.12,50.09">Samara, Russia</option>
+                        <option value="51.34,46.02">Saratov, Russia</option>
+                        <option value="44.57,34.06">Simferopol, Ukraine</option>
+                        <option value="42.41,23.19">Sofia, Bulgaria</option>
+                        <option value="59.2,18.03">Stockholm, Sweden</option>
+                        <option value="59.25,24.45">Tallinn, Estonia</option>
+                        <option value="41.2,19.5">Tirane, Albania</option>
+                        <option value="54.2,48.24">Ulyanovsk, Russia</option>
+                        <option value="48.37,22.18">Uzhhorod (Uzhgorod), Ukraine</option>
+                        <option value="48.13,16.2">Vienna, Austria</option>
+                        <option value="54.41,25.19">Vilnius, Lithuania</option>
+                        <option value="48.44,44.25">Volgograd, Russia</option>
+                        <option value="52.15,21.0">Warsaw, Poland</option>
+                        <option value="47.5,35.1">Zaporizhia (Zaporozhye), Ukraine</option>
+                        <option value="47.23,8.32">Zurich, Switzerland</option>
+                    </optgroup>
+                    <optgroup label="Indian">
+                        <option value="-7.2,72.25">Chagos Archipelago</option>
+                        <option value="-10.25,105.43">Christmas Island</option>
+                        <option value="-12.1,96.55">Cocos (Keeling) Islands</option>
+                        <option value="-49.21,0.1">Kerguelen Islands, French Southern Territories</option>
+                        <option value="-4.4,55.28">Mahé, Seychelles</option>
+                        <option value="4.1,73.3">Maldives</option>
+                        <option value="-20.1,57.3">Mauritius</option>
+                        <option value="-20.52,55.28">Réunion</option>
+                    </optgroup>
+                    <optgroup label="Pacific">
+                        <option value="-13.5,-171.44">Apia, Samoa</option>
+                        <option value="-36.52,174.46">Auckland, New Zealand</option>
+                        <option value="-6.13,155.34">Bougainville, Papua New Guinea</option>
+                        <option value="-43.57,-176.33">Chatham Islands, New Zealand</option>
+                        <option value="7.25,151.47">Chuuk, Micronesia</option>
+                        <option value="-27.09,-109.26">Easter Island, Chile</option>
+                        <option value="-17.4,168.25">Efate, Vanuatu</option>
+                        <option value="-3.08,-171.05">Enderbury Island, Kiribati</option>
+                        <option value="-9.22,-171.14">Fakaofo, Tokelau</option>
+                        <option value="-18.08,178.25">Fiji</option>
+                        <option value="-8.31,179.13">Funafuti, Tuvalu</option>
+                        <option value="-0.54,-89.36">Galápagos Islands, Ecuador</option>
+                        <option value="-23.08,-134.57">Gambiera Islands, French Polynesia</option>
+                        <option value="-9.32,160.12">Guadalcanal, Solomon Islands</option>
+                        <option value="13.28,144.45">Guam</option>
+                        <option value="21.18,0.25">Honolulu, United States</option>
+                        <option value="1.52,-157.2">Kiritimati, Kiribati</option>
+                        <option value="5.19,162.59">Kosrae, Micronesia</option>
+                        <option value="9.05,167.2">Kwajalein, Marshall Islands</option>
+                        <option value="7.09,171.12">Majuro, Marshall Islands</option>
+                        <option value="-9.0,-139.3">Marquesas Islands, French Polynesia</option>
+                        <option value="-0.31,166.55">Nauru</option>
+                        <option value="-19.01,-169.55">Niue</option>
+                        <option value="-29.03,167.58">Norfolk Island</option>
+                        <option value="-22.16,166.27">Noumea, New Caledonia</option>
+                        <option value="-14.16,-170.42">Pago Pago, American Samoa</option>
+                        <option value="7.2,134.29">Palau</option>
+                        <option value="-25.04,-130.05">Pitcairn Islands</option>
+                        <option value="6.58,158.13">Pohnpei, Micronesia</option>
+                        <option value="-9.3,147.1">Port Moresby, Papua New Guinea</option>
+                        <option value="-21.14,-159.46">Rarotonga, Cook Islands</option>
+                        <option value="-17.32,-149.34">Tahiti, French Polynesia</option>
+                        <option value="1.25,173.0">Tarawa, Kiribati</option>
+                        <option value="-21.1,-175.1">Tongatapu, Tonga</option>
+                        <option value="19.17,166.37">Wake Island, U.S. Minor Outlying Islands</option>
+                        <option value="-13.18,-176.1">Wallis Islands, Wallis and Futuna</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer container">
+    <div class="row column">
+        Copyright &copy; 2018 David Dostal
+    </div>
+</footer>
+</body>
+</html>

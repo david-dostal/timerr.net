@@ -1,0 +1,298 @@
+/*==============================================================================
+DEBUG.CSS
+Styles for layout debugging and visualising purposes.
+Created by David Dostal: http://daviddostal.cz
+================================================================================*/
+[debug] * {
+  outline: 1px dashed rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.01); }
+
+[debug-baseline], [debug-baseline-half], [debug-baseline-double] {
+  position: relative; }
+
+[debug-baseline]::before,
+[debug-baseline-half]::before,
+[debug-baseline-double]::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none; }
+
+[debug-baseline]::before {
+  background-image: url(http://basehold.it/i/18/100/60/120); }
+
+[debug-baseline-half]::before {
+  background-image: url(http://basehold.it/i/9/100/60/120); }
+
+[debug-baseline-double]::before {
+  background-image: url(http://basehold.it/i/36/100/60/120); }
+
+body {
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 4em;
+  max-height: 100vh;
+  font-family: inherit; }
+
+.container {
+  margin: 0;
+  padding: 0.5rem; }
+
+.row {
+  padding: 0.5rem; }
+
+.column {
+  max-width: 50rem;
+  margin: auto; }
+
+@media (min-width: 20rem) {
+  .container {
+    padding: 1rem; }
+
+  .row {
+    padding: 0.5rem 1rem; } }
+.menu {
+  float: left; }
+
+.logo {
+  float: left; }
+
+.navigation {
+  box-sizing: border-box; }
+  .navigation:before, .navigation:after {
+    content: " ";
+    display: table; }
+  .navigation:after {
+    clear: both; }
+
+body {
+  min-height: 100vh;
+  position: relative; }
+
+body::after {
+  content: '';
+  display: block;
+  height: 5rem; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #fff; }
+
+h1 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px rgba(100, 100, 100, 0.2); }
+
+.page {
+  background-color: #3CD17E; }
+
+.header {
+  background-color: #36BD72;
+  color: #fff; }
+
+.content {
+  background-color: #3CD17E; }
+
+.footer {
+  background-color: #36BD72;
+  color: #fff; }
+
+.panel-primary {
+  background-color: #36BD72;
+  color: #fff; }
+
+.panel-secondary {
+  background-color: inherit;
+  color: #fff; }
+
+.panel-information {
+  background-color: #fff;
+  color: #000; }
+
+/* Timer controls */
+.control-group {
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 -0.5rem; }
+  .control-group:before, .control-group:after {
+    content: " ";
+    display: table; }
+  .control-group:after {
+    clear: both; }
+
+.control {
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 4px 4px 4px rgba(100, 100, 100, 0.2);
+  outline: 0; }
+  .control:hover, .control:focus {
+    background-color: #f6f6f6; }
+  .control:hover {
+    box-shadow: 6px 6px 6px rgba(100, 100, 100, 0.2); }
+  .control:active {
+    box-shadow: 2px 2px 2px rgba(100, 100, 100, 0.2);
+    background-color: #eee; }
+
+.control-primary {
+  font-weight: 600; }
+
+.control-secondary {
+  box-shadow: none;
+  width: auto; }
+  .control-secondary:hover, .control-secondary:active {
+    box-shadow: none; }
+
+.input-submit {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  width: auto; }
+
+@media (min-width: 25rem) {
+  .control-primary {
+    text-transform: uppercase;
+    font-size: 1.5rem; }
+
+  .control, .text-info {
+    font-size: 1.5rem; }
+
+  .control-secondary {
+    font-size: 1rem; }
+
+  .input-submit {
+    padding: 1rem 2rem; } }
+.col-50 {
+  width: 50%;
+  float: left; }
+
+.control-wrapper {
+  padding: 1rem .5rem; }
+
+.input-wrapper {
+  padding: .5rem 0; }
+
+button, input[type="submit"] {
+  cursor: pointer; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse; }
+  table td, table th {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ddd; }
+  table tr {
+    border-bottom: 1px solid #ddd; }
+
+.table-container {
+  max-width: 100%;
+  overflow: auto; }
+
+@media (min-width: 20rem) {
+  table td, table th {
+    padding: 1rem; } }
+/* Navigation */
+.navigation .menu, .navigation .logo {
+  margin: 0; }
+.navigation .logo {
+  font-size: 1.5rem; }
+.navigation ul {
+  padding: 0; }
+.navigation li {
+  display: inline-block; }
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block; }
+
+/* Timer */
+.timer, .timer input, .timer-divider {
+  font-size: 16vw; }
+
+.timer-time, .timer-input-group {
+  display: block;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 4px;
+  text-shadow: 0.035em 0.035em #2b975b; }
+
+.timer-input-group {
+  font-size: 0; }
+
+@media (min-width: 50rem) {
+  .timer, .timer input, .timer-divider {
+    font-size: 8rem; } }
+.timer ::selection {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff; }
+.timer ::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff; }
+.timer input {
+  width: 1.15em;
+  max-height: 8rem;
+  overflow: auto;
+  border: none;
+  border-bottom: 5px solid #2b975b;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out; }
+  .timer input:focus, .timer input:hover {
+    background-color: #f6f6f6; }
+  .timer input:invalid {
+    outline: 2px solid #e56; }
+  .timer input[type=number]::-webkit-inner-spin-button, .timer input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .timer input[type="number"] {
+    -moz-appearance: textfield; }
+  .timer input[readonly] {
+    border-bottom-color: transparent; }
+  .timer input[readonly]:hover, .timer input[readonly]:focus {
+    background-color: transparent; }
+.timer input, .timer .timer-divider {
+  display: inline-block;
+  line-height: 1em;
+  align-content: center;
+  padding: 0;
+  text-align: center;
+  background-color: transparent;
+  color: inherit;
+  text-shadow: 0.035em 0.035em #2b975b;
+  font-family: inherit; }
+
+/* Content containers */
+.panel-text {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px rgba(100, 100, 100, 0.2);
+  color: #000; }
+  .panel-text h1 {
+    text-shadow: none; }
+
+.panel-primary, .panel-secondary {
+  text-align: center; }
+
+/*# sourceMappingURL=styles.css.map */
