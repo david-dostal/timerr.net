@@ -2,8 +2,8 @@ let stopwatchElement;
 let startButtonElement;
 let resetButtonElement;
 let shareButtonElement;
-let lapTableElement;
-let lapIndex = 1;
+let lapTableWrapper;
+let lapTable;
 
 let stopwatch = new Stopwatch(100, timerTick);
 
@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     stopwatchElement = document.getElementById('timer-time');
     startButtonElement = document.getElementById('button-start');
     resetButtonElement = document.getElementById('button-reset');
-    lapTableElement = document.getElementById('lap-table');
+    lapTableWrapper = document.getElementById('lap-info');
     shareButtonElement = document.getElementById('button-share-times');
     startButtonElement.onclick = startClick;
     resetButtonElement.onclick = resetClick;
+
+    lapTable = ReactDOM.render(<LapTable/>, lapTableWrapper);
 });
 
 function timerTick(elapsed) {
@@ -50,8 +52,7 @@ function resetClick() {
         stopwatch.reset();
         updateUi('0:00:00.0');
         startButtonElement.innerText = 'Start';
-        lapIndex = 1;
-        lapTableElement.innerHTML = '';
+        lapTable.clear();
     }
 }
 
@@ -65,13 +66,7 @@ function addLap(total, lap) {
     let lapFormatted = formatTime(lap);
     let totalFormatted = formatTime(total);
 
-    let row = document.createElement('tr');
-    row.appendChild(tableCell(lapIndex.toString()));
-    row.appendChild(tableCell(lapFormatted));
-    row.appendChild(tableCell(totalFormatted));
-    lapTableElement.appendChild(row);
-
-    lapIndex += 1;
+    lapTable.addLap(lapFormatted, totalFormatted);
 }
 
 function updateUi(text) {

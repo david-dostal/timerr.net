@@ -1,36 +1,3 @@
-/*==============================================================================
-DEBUG.CSS
-Styles for layout debugging and visualising purposes.
-Created by David Dostal: http://daviddostal.cz
-================================================================================*/
-[debug] * {
-  outline: 1px dashed rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.01); }
-
-[debug-baseline], [debug-baseline-half], [debug-baseline-double] {
-  position: relative; }
-
-[debug-baseline]::before,
-[debug-baseline-half]::before,
-[debug-baseline-double]::before {
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  pointer-events: none; }
-
-[debug-baseline]::before {
-  background-image: url(http://basehold.it/i/18/100/60/120); }
-
-[debug-baseline-half]::before {
-  background-image: url(http://basehold.it/i/9/100/60/120); }
-
-[debug-baseline-double]::before {
-  background-image: url(http://basehold.it/i/36/100/60/120); }
-
 body {
   margin: 0; }
 
@@ -102,21 +69,21 @@ h1 {
   text-shadow: 2px 2px 2px rgba(100, 100, 100, 0.2); }
 
 .page {
-  background-color: #3CD17E; }
+  background-color: #3cd17e; }
 
 .header {
-  background-color: #36BD72;
+  background-color: #36bd72;
   color: #fff; }
 
 .content {
-  background-color: #3CD17E; }
+  background-color: #3cd17e; }
 
 .footer {
-  background-color: #36BD72;
+  background-color: #36bd72;
   color: #fff; }
 
 .panel-primary {
-  background-color: #36BD72;
+  background-color: #36bd72;
   color: #fff; }
 
 .panel-secondary {
@@ -138,6 +105,10 @@ h1 {
   .control-group:after {
     clear: both; }
 
+select::-ms-value {
+  color: inherit;
+  background-color: transparent; }
+
 .control {
   border-radius: 4px;
   background-color: #fff;
@@ -148,12 +119,12 @@ h1 {
   box-shadow: 4px 4px 4px rgba(100, 100, 100, 0.2);
   outline: 0; }
   .control:hover, .control:focus {
-    background-color: #f6f6f6; }
+    background-color: #f4f4f4; }
   .control:hover {
     box-shadow: 6px 6px 6px rgba(100, 100, 100, 0.2); }
   .control:active {
     box-shadow: 2px 2px 2px rgba(100, 100, 100, 0.2);
-    background-color: #eee; }
+    background-color: #e8e8e8; }
 
 .control-primary {
   font-weight: 600; }
@@ -198,13 +169,23 @@ button, input[type="submit"] {
 /* Tables */
 table {
   width: 100%;
-  border-collapse: collapse; }
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 4px; }
   table td, table th {
     padding: 0.5rem;
     text-align: center;
     border: 1px solid #ddd; }
   table tr {
     border-bottom: 1px solid #ddd; }
+  table thead tr:first-child td:first-child, table thead tr:first-child th:first-child {
+    border-top-left-radius: 4px; }
+  table thead tr:first-child td:last-child, table thead tr:first-child th:last-child {
+    border-top-right-radius: 4px; }
+  table tbody tr:last-child td:first-child, table tbody tr:last-child th:first-child {
+    border-bottom-left-radius: 4px; }
+  table tbody tr:last-child td:last-child, table tbody tr:last-child th:last-child {
+    border-bottom-right-radius: 4px; }
 
 .table-container {
   max-width: 100%;
@@ -245,10 +226,10 @@ table {
   .timer, .timer input, .timer-divider {
     font-size: 8rem; } }
 .timer ::selection {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   color: #fff; }
 .timer ::-moz-selection {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   color: #fff; }
 .timer input {
   width: 1.15em;
@@ -260,7 +241,7 @@ table {
   outline: none;
   transition: background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out; }
   .timer input:focus, .timer input:hover {
-    background-color: #f6f6f6; }
+    background-color: #2eac6c; }
   .timer input:invalid {
     outline: 2px solid #e56; }
   .timer input[type=number]::-webkit-inner-spin-button, .timer input[type=number]::-webkit-outer-spin-button {

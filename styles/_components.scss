@@ -1,0 +1,263 @@
+/* Timer controls */
+.control-group {
+  text-align: center;
+  @include clear;
+  margin: 0 -0.5rem;
+}
+
+select::-ms-value {
+  color: inherit;
+  background-color: transparent; // prevent selection highlight in IE
+}
+
+.control {
+  border-radius: $border-radius;
+  background-color: $information;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 4px 4px 4px $control-shadow;
+  outline: 0;
+
+  &:hover, &:focus {
+    background-color: $control-hover;
+  }
+
+  &:hover {
+    box-shadow: 6px 6px 6px $control-shadow;
+  }
+
+  &:active {
+    box-shadow: 2px 2px 2px $control-shadow;
+    background-color: $control-active;
+  }
+}
+
+.control-primary {
+  font-weight: 600;
+}
+
+.control-secondary {
+  box-shadow: none;
+  width: auto;
+
+  &:hover, &:active {
+    box-shadow: none;
+  }
+}
+
+.input-submit {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  width: auto;
+}
+
+@media (min-width: 25rem) {
+  .control-primary {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .control, .text-info {
+    font-size: 1.5rem;
+  }
+
+  .control-secondary {
+    font-size: 1rem;
+  }
+
+  .input-submit {
+    padding: 1rem 2rem;
+  }
+}
+
+.col-50 {
+  width: 50%;
+  float: left;
+}
+
+.control-wrapper {
+  padding: 1rem .5rem;
+}
+
+.input-wrapper {
+  padding: .5rem 0;
+}
+
+button, input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0; // collapse borders, but allow border-radius
+  border-radius: $border-radius;
+
+  td, th {
+    padding: $container-padding-tight;
+    text-align: center;
+    border: 1px solid $border;
+  }
+
+  tr {
+    border-bottom: 1px solid $border;
+  }
+
+  thead tr:first-child {
+    td:first-child, th:first-child {
+      border-top-left-radius: $border-radius;
+    }
+    td:last-child, th:last-child {
+      border-top-right-radius: $border-radius;
+    }
+  }
+
+  tbody tr:last-child {
+    td:first-child, th:first-child {
+      border-bottom-left-radius: $border-radius;
+    }
+    td:last-child, th:last-child {
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+}
+
+.table-container {
+  max-width: 100%;
+  overflow: auto;
+}
+
+@media (min-width: 20rem) {
+  table {
+    td, th {
+      padding: $container-padding-full;
+    }
+  }
+}
+
+/* Navigation */
+.navigation {
+  .menu, .logo {
+    margin: 0;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+}
+
+/* Timer */
+.timer, .timer input, .timer-divider {
+  font-size: 16vw;
+}
+
+.timer-time, .timer-input-group {
+  display: block;
+  line-height: 1em;
+  text-align: center;
+  border-radius: $border-radius;
+  text-shadow: 0.035em 0.035em $primary-darker;
+}
+
+.timer-input-group {
+  font-size: 0;
+}
+
+@media (min-width: $row-max-width) {
+  .timer, .timer input, .timer-divider {
+    font-size: $row-max-width * 0.16;
+  }
+}
+
+.timer {
+  ::selection {
+    background-color: $primary-highlight;
+    color: $text-primary;
+  }
+
+  ::-moz-selection {
+    background-color: $primary-highlight;
+    color: $text-primary;
+  }
+
+  input {
+    width: 1.15em;
+    max-height: 8rem;
+    overflow: auto;
+    border: none;
+    border-bottom: 5px solid $primary-darker;
+    border-radius: $border-radius;
+    outline: none;
+    transition: background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+
+    &:focus, &:hover {
+      background-color: $primary-dark;
+    }
+
+    &:invalid {
+      outline: 2px solid $error;
+    }
+
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    &[readonly] {
+      border-bottom-color: transparent;
+    }
+
+    &[readonly]:hover, &[readonly]:focus {
+      background-color: transparent;
+    }
+  }
+
+  input, .timer-divider {
+    display: inline-block;
+    line-height: 1em;
+    align-content: center;
+    padding: 0;
+    text-align: center;
+    background-color: transparent;
+    color: inherit;
+    text-shadow: 0.035em 0.035em $primary-darker;
+    font-family: inherit;
+  }
+}
+
+/* Content containers */
+.panel-text {
+  background-color: $information;
+  border-radius: $border-radius;
+  box-shadow: 4px 4px 4px $control-shadow;
+  color: $text-inverse;
+  h1 {
+    text-shadow: none;
+  }
+}
+
+.panel-primary, .panel-secondary {
+  text-align: center;
+}

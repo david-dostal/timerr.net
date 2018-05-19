@@ -3,13 +3,20 @@ $text-secondary: #ddd;
 $text-inverse: #000;
 $text-inverse-secondary: #222;
 
-$primary: #3CD17E;
-$primary-dark: #36BD72;
+$primary-highlight: rgba(255, 255, 255, 0.4);
+$primary-light: #3cd17e;
+$primary: #36bd72;
+$primary-dark: #2eac6c;
+$primary-darker: #2b975b;
+
 $information: #fff;
 
-$input-hover: #2eac6c;
-$control-hover: #f6f6f6;
+$control-hover: #f4f4f4;
+$control-active: #e8e8e8;
 $control-shadow: rgba(100, 100, 100, 0.2);
+
+$border: #ddd;
+$error: #e56;
 
 $border-radius: 4px;
 
@@ -26,26 +33,26 @@ h1 {
 }
 
 .page {
-  background-color: $primary;
+  background-color: $primary-light;
 }
 
 .header {
-  background-color: $primary-dark;
+  background-color: $primary;
   color: $text-primary;
 }
 
 .content {
-  background-color: $primary;
+  background-color: $primary-light;
 
 }
 
 .footer {
-  background-color: $primary-dark;
+  background-color: $primary;
   color: $text-primary
 }
 
 .panel-primary {
-  background-color: $primary-dark;
+  background-color: $primary;
   color: $text-primary
 }
 
