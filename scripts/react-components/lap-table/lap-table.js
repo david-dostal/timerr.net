@@ -39,6 +39,7 @@ var LapTable = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (LapTable.__proto__ || Object.getPrototypeOf(LapTable)).call(this));
 
         _this.state = {
+            lastNumber: 0,
             rows: []
         };
         return _this;
@@ -49,20 +50,36 @@ var LapTable = function (_React$Component) {
         value: function addLap(lapTime, totalTime) {
             this.setState(function (previousState) {
                 return {
-                    rows: previousState.rows.concat({ number: previousState.rows.length + 1, lapTime: lapTime, totalTime: totalTime })
+                    lastNumber: previousState.lastNumber + 1,
+                    rows: previousState.rows.concat({ number: previousState.lastNumber + 1, lapTime: lapTime, totalTime: totalTime })
                 };
             });
         }
     }, {
         key: "clear",
         value: function clear() {
-            this.setState({ rows: [] });
+            this.setState({ lastNumber: 0, rows: [] });
+        }
+    }, {
+        key: "handleDeleteClick",
+        value: function handleDeleteClick(rowNumber) {
+            this.setState(function (previousState) {
+                return {
+                    rows: previousState.rows.filter(function (row) {
+                        return row.number !== rowNumber;
+                    })
+                };
+            });
         }
     }, {
         key: "render",
         value: function render() {
-            return React.createElement("table", { className: "lap-table panel-information" }, React.createElement("thead", { hidden: this.state.rows.length === 0 }, React.createElement("tr", null, React.createElement("th", null, "No."), React.createElement("th", null, "Lap"), React.createElement("th", null, "Total"))), React.createElement("tbody", { id: "lap-table" }, this.state.rows.map(function (row) {
-                return React.createElement(LapRow, { key: row.number, number: row.number, lapTime: row.lapTime, totalTime: row.totalTime });
+            var _this2 = this;
+
+            return React.createElement("table", { className: "lap-table panel-information" }, React.createElement("thead", { hidden: this.state.rows.length === 0 }, React.createElement("tr", null, React.createElement("th", null, "No."), React.createElement("th", null, "Lap"), React.createElement("th", null, "Total"), React.createElement("th", null))), React.createElement("tbody", { id: "lap-table" }, this.state.rows.map(function (row) {
+                return React.createElement(LapRow, { key: row.number, number: row.number, lapTime: row.lapTime, totalTime: row.totalTime, deleteClick: function deleteClick(n) {
+                        return _this2.handleDeleteClick(n);
+                    } });
             })));
         }
     }]);

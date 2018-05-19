@@ -42,7 +42,11 @@ var LapRow = function (_React$Component) {
     _createClass(LapRow, [{
         key: "render",
         value: function render() {
-            return React.createElement("tr", null, React.createElement("td", null, this.props.number), React.createElement("td", null, this.props.lapTime), React.createElement("td", null, this.props.totalTime));
+            var _this2 = this;
+
+            return React.createElement("tr", null, React.createElement("td", null, this.props.number), React.createElement("td", null, this.props.lapTime), React.createElement("td", null, this.props.totalTime), React.createElement("td", { className: "control-holder" }, React.createElement("button", { onClick: function onClick() {
+                    return _this2.props.deleteClick(_this2.props.number);
+                }, className: "control control-secondary container" }, "\u274C")));
         }
     }]);
 

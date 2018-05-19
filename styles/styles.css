@@ -149,7 +149,8 @@ select::-ms-value {
     font-size: 1.5rem; }
 
   .control-secondary {
-    font-size: 1rem; }
+    font-size: 1rem;
+    line-height: 1rem; }
 
   .input-submit {
     padding: 1rem 2rem; } }
@@ -186,6 +187,9 @@ table {
     border-bottom-left-radius: 4px; }
   table tbody tr:last-child td:last-child, table tbody tr:last-child th:last-child {
     border-bottom-right-radius: 4px; }
+  table td.control-holder {
+    padding: 0;
+    width: 4rem; }
 
 .table-container {
   max-width: 100%;

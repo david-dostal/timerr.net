@@ -65,6 +65,7 @@ select::-ms-value {
 
   .control-secondary {
     font-size: 1rem;
+    line-height: 1rem;
   }
 
   .input-submit {
@@ -122,6 +123,11 @@ table {
     td:last-child, th:last-child {
       border-bottom-right-radius: $border-radius;
     }
+  }
+
+  td.control-holder {
+    padding: 0;
+    width: 4rem;
   }
 }
 

@@ -2,18 +2,26 @@ class LapTable extends React.Component {
     constructor() {
         super();
         this.state = {
+            lastNumber: 0,
             rows: []
         };
     }
 
     addLap(lapTime, totalTime) {
         this.setState(previousState => ({
-            rows: previousState.rows.concat({number: previousState.rows.length + 1, lapTime: lapTime, totalTime: totalTime})
+            lastNumber: previousState.lastNumber + 1,
+            rows: previousState.rows.concat({number: previousState.lastNumber + 1, lapTime: lapTime, totalTime: totalTime})
         }));
     }
 
     clear() {
-        this.setState({rows: []});
+        this.setState({lastNumber: 0, rows: []});
+    }
+
+    handleDeleteClick(rowNumber) {
+        this.setState(previousState => ({
+            rows: previousState.rows.filter((row) => row.number !== rowNumber)
+        }));
     }
 
     render() {
@@ -24,11 +32,12 @@ class LapTable extends React.Component {
                     <th>No.</th>
                     <th>Lap</th>
                     <th>Total</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody id="lap-table">
                 {this.state.rows.map((row) =>
-                    <LapRow key={row.number} number={row.number} lapTime={row.lapTime} totalTime={row.totalTime}/>
+                    <LapRow key={row.number} number={row.number} lapTime={row.lapTime} totalTime={row.totalTime} deleteClick={(n) => this.handleDeleteClick(n)}/>
                 )}
                 </tbody>
             </table>);
