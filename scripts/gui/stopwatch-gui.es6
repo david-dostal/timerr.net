@@ -1,13 +1,11 @@
-'use strict';
+let stopwatchElement;
+let startButtonElement;
+let resetButtonElement;
+let shareButtonElement;
+let lapTableWrapper;
+let lapTable;
 
-var stopwatchElement = void 0;
-var startButtonElement = void 0;
-var resetButtonElement = void 0;
-var shareButtonElement = void 0;
-var lapTableWrapper = void 0;
-var lapTable = void 0;
-
-var stopwatch = new Stopwatch(100, timerTick);
+let stopwatch = new Stopwatch(100, timerTick);
 
 document.addEventListener("DOMContentLoaded", function (event) {
     stopwatchElement = document.getElementById('timer-time');
@@ -18,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     startButtonElement.onclick = startClick;
     resetButtonElement.onclick = resetClick;
 
-    lapTable = ReactDOM.render(React.createElement(LapTable, null), lapTableWrapper);
+    lapTable = ReactDOM.render(<LapTable/>, lapTableWrapper);
 });
 
 function timerTick(elapsed) {
-    var timeStr = formatTime(elapsed);
+    let timeStr = formatTime(elapsed);
     updateUi(timeStr);
 }
 
@@ -48,10 +46,7 @@ function startClick() {
 
 function resetClick() {
     if (stopwatch.getState() === TimerState.RUNNING) {
-        var _stopwatch$lap = stopwatch.lap(),
-            total = _stopwatch$lap.total,
-            lap = _stopwatch$lap.lap;
-
+        let {total, lap} = stopwatch.lap();
         addLap(total, lap);
     } else {
         stopwatch.reset();
@@ -62,14 +57,14 @@ function resetClick() {
 }
 
 function tableCell(text) {
-    var cell = document.createElement('td');
+    let cell = document.createElement('td');
     cell.innerText = text;
     return cell;
 }
 
 function addLap(total, lap) {
-    var lapFormatted = formatTime(lap);
-    var totalFormatted = formatTime(total);
+    let lapFormatted = formatTime(lap);
+    let totalFormatted = formatTime(total);
 
     lapTable.addLap(lapFormatted, totalFormatted);
 }
@@ -77,5 +72,4 @@ function addLap(total, lap) {
 function updateUi(text) {
     stopwatchElement.innerText = text;
 }
-//# sourceMappingURL=stopwatch-gui.js.map
-//# sourceMappingURL=stopwatch-gui.js.map
+

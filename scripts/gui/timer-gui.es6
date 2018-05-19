@@ -1,17 +1,15 @@
-'use strict';
+let stopwatchElement;
+let startButtonElement;
+let resetButtonElement;
+let formElement;
 
-var stopwatchElement = void 0;
-var startButtonElement = void 0;
-var resetButtonElement = void 0;
-var formElement = void 0;
+let hoursInput;
+let minutesInput;
+let secondsInput;
 
-var hoursInput = void 0;
-var minutesInput = void 0;
-var secondsInput = void 0;
+let timer = new Timer(1000, timerTick, 2 * 60 * 1000, timerCompleted);
 
-var timer = new Timer(1000, timerTick, 2 * 60 * 1000, timerCompleted);
-
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", (event) => {
     stopwatchElement = document.getElementById('timer-time');
 
     hoursInput = document.getElementById('hours-input');
@@ -21,15 +19,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     resetButtonElement = document.getElementById('button-reset');
     formElement = document.getElementById('timer-time');
 
-    if (localStorage && localStorage.getItem('timer-start-time') === null) {
+    if(localStorage && localStorage.getItem('timer-start-time') === null) {
         saveTimerTime();
     }
-    if (localStorage) {
-        var _JSON$parse = JSON.parse(localStorage.getItem('timer-start-time')),
-            h = _JSON$parse.h,
-            m = _JSON$parse.m,
-            s = _JSON$parse.s;
-
+    if(localStorage) {
+        let {h, m, s} = JSON.parse(localStorage.getItem('timer-start-time'));
         timer.reset(toMilliseconds(h, m, s));
     }
 
@@ -67,11 +61,7 @@ function startClick() {
 function startTimer() {
     if (inputsValid()) {
         freezeInputs();
-        var _ref = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)],
-            h = _ref[0],
-            m = _ref[1],
-            s = _ref[2];
-
+        let [h, m, s] = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)];
         saveTimerTime();
         timer.start(toMilliseconds(h, m, s));
         startButtonElement.innerText = 'Pause';
@@ -79,15 +69,12 @@ function startTimer() {
 }
 
 function saveTimerTime() {
-    if (localStorage) {
-        var _ref2 = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)],
-            h = _ref2[0],
-            m = _ref2[1],
-            s = _ref2[2];
-
-        localStorage.setItem('timer-start-time', JSON.stringify({ h: h, m: m, s: s }));
+    if(localStorage) {
+        let [h, m, s] = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)];
+        localStorage.setItem('timer-start-time', JSON.stringify({h: h, m: m, s: s}));
     }
 }
+
 
 function resetClick() {
     timer.reset();
@@ -97,7 +84,7 @@ function resetClick() {
 }
 
 function timerCompleted() {
-    setTimeout(function () {
+    setTimeout(() => {
         alert('Time is up!');
         resetClick();
     }, 1); // Timeout needed to give time to the browser to re-render before the alert is shown.
@@ -106,20 +93,14 @@ function timerCompleted() {
 function updateUi(millis) {
     //console.log(millis);
     millis = Math.round(millis / 1000) * 1000;
-
-    var _decomposeTime = decomposeTime(millis),
-        h = _decomposeTime.h,
-        m = _decomposeTime.m,
-        s = _decomposeTime.s,
-        _ = _decomposeTime._;
-
+    let {h, m, s, _} = decomposeTime(millis);
     hoursInput.value = h.toString().padStart(2, '0');
     minutesInput.value = m.toString().padStart(2, '0');
     secondsInput.value = s.toString().padStart(2, '0');
 }
 
 function inputsValid() {
-    var valid = hoursInput.validity.valid && minutesInput.validity.valid && secondsInput.validity.valid;
+    let valid = hoursInput.validity.valid && minutesInput.validity.valid && secondsInput.validity.valid;
     if (!valid) {
         formElement.reportValidity();
     }
@@ -137,5 +118,3 @@ function unfreezeInputs() {
     minutesInput.removeAttribute('readonly');
     secondsInput.removeAttribute('readonly');
 }
-//# sourceMappingURL=timer-gui.js.map
-//# sourceMappingURL=timer-gui.js.map

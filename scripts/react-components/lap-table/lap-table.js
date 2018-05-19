@@ -1,36 +1,73 @@
-class LapTable extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            rows: []
-        };
-    }
+"use strict";
 
-    addLap(lapTime, totalTime) {
-        this.setState(previousState => ({
-            rows: previousState.rows.concat({number: previousState.rows.length + 1, lapTime: lapTime, totalTime: totalTime})
-        }));
-    }
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-    clear() {
-        this.setState({rows: []});
-    }
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+    };
+}();
 
-    render() {
-        return (
-            <table className="lap-table panel-information">
-                <thead hidden={this.state.rows.length === 0}>
-                <tr>
-                    <th>No.</th>
-                    <th>Lap</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                <tbody id="lap-table">
-                {this.state.rows.map((row) =>
-                    <LapRow key={row.number} number={row.number} lapTime={row.lapTime} totalTime={row.totalTime}/>
-                )}
-                </tbody>
-            </table>);
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
     }
 }
+
+function _possibleConstructorReturn(self, call) {
+    if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var LapTable = function (_React$Component) {
+    _inherits(LapTable, _React$Component);
+
+    function LapTable() {
+        _classCallCheck(this, LapTable);
+
+        var _this = _possibleConstructorReturn(this, (LapTable.__proto__ || Object.getPrototypeOf(LapTable)).call(this));
+
+        _this.state = {
+            rows: []
+        };
+        return _this;
+    }
+
+    _createClass(LapTable, [{
+        key: "addLap",
+        value: function addLap(lapTime, totalTime) {
+            this.setState(function (previousState) {
+                return {
+                    rows: previousState.rows.concat({ number: previousState.rows.length + 1, lapTime: lapTime, totalTime: totalTime })
+                };
+            });
+        }
+    }, {
+        key: "clear",
+        value: function clear() {
+            this.setState({ rows: [] });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return React.createElement("table", { className: "lap-table panel-information" }, React.createElement("thead", { hidden: this.state.rows.length === 0 }, React.createElement("tr", null, React.createElement("th", null, "No."), React.createElement("th", null, "Lap"), React.createElement("th", null, "Total"))), React.createElement("tbody", { id: "lap-table" }, this.state.rows.map(function (row) {
+                return React.createElement(LapRow, { key: row.number, number: row.number, lapTime: row.lapTime, totalTime: row.totalTime });
+            })));
+        }
+    }]);
+
+    return LapTable;
+}(React.Component);
+//# sourceMappingURL=lap-table.js.map
+//# sourceMappingURL=lap-table.js.map
