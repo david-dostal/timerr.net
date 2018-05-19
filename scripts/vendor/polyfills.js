@@ -1,15 +1,2 @@
-"use strict";
-
-// https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-
-String.prototype.padStart || (String.prototype.padStart = function (t, i) {
-  return t >>= 0, i = String(void 0 !== i ? i : " "), this.length > t ? String(this) : ((t -= this.length) > i.length && (i += i.repeat(t / i.length)), i.slice(0, t) + String(this));
-});
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
-//# sourceMappingURL=polyfills.min.js.map
+/*! https://github.com/uxitten/polyfill/blob/master/string.polyfill.js | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart */
+String.prototype.padStart||(String.prototype.padStart=function(b,a){return b>>=0,a=String(void 0!==a?a:" "),this.length>b?String(this):((b-=this.length)>a.length&&(a+=a.repeat(b/a.length)),a.slice(0,b)+String(this))});

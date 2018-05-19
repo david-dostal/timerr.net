@@ -74,7 +74,7 @@ Produkce
 - [Unicode Common Locale Data Repository](http://cldr.unicode.org/) – Seznam časových pásem
   podporovaných v Google Timezone API (odkaz na [seznam časových zón](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml)).
 
-Veškeré soubory, které nejsou vlastní (knihovny, polyfilly apod.) se nachází ve složce [js/vendor](./js/vendor).
+Veškeré soubory, které nejsou vlastní (knihovny, polyfilly apod.) se nachází ve složce [scripts/vendor](./js/vendor).
 
 Vývoj
 -----
