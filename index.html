@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/ie.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ie.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="js/polyfills.min.js"></script>
+    <script type="text/javascript" src="js/vendor/polyfills.min.js"></script>
+    <script type="text/javascript" src="js/vendor/react.min.js"></script>
+    <script type="text/javascript" src="js/react-components/lap-table/lap-row.js"></script>
+    <script type="text/javascript" src="js/react-components/lap-table/lap-table.js"></script>
     <script type="text/javascript" src="js/common/time-functions.js"></script>
     <script type="text/javascript" src="js/common/interval-timer.js"></script>
     <script type="text/javascript" src="js/common/base-timer.js"></script>
@@ -39,25 +42,13 @@
         </div>
         <div class="control-group">
             <div class="col-50 control-wrapper">
-                <button class="control control-primary container" id="button-start">Start</button>
+                <button class="control control-primary container" id="button-start" autofocus>Start</button>
             </div>
             <div class="col-50 control-wrapper">
                 <button class="control container" id="button-reset">Reset</button>
             </div>
         </div>
-        <div class="table-container panel-information">
-            <table class="lap-table">
-                <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Lap</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                <tbody id="lap-table">
-
-                </tbody>
-            </table>
+        <div class="table-container" id="lap-info">
         </div>
     </div>
 </section>

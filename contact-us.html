@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/ie.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ie.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="js/polyfills.min.js"></script>
+    <script type="text/javascript" src="js/vendor/polyfills.min.js"></script>
     <script type="text/javascript" src="js/gui/contact-us-gui.js"></script>
 </head>
 <body class="page">
@@ -33,15 +33,17 @@
             <div class="input-wrapper">
                 <input type="text" class="control container" placeholder="What are you writing about?"
                        name="message-subject" id="message-subject"
-                       required/>
+                       required autofocus/>
             </div>
             <div class="input-wrapper">
-                <input type="email" class="control container" placeholder="Your email addres (optional)" autocomplete="email"
+                <input type="email" class="control container" placeholder="Your email addres (optional)"
+                       autocomplete="email"
                        name="message-email"
                        id="message-email"/>
             </div>
             <div class="input-wrapper">
-                <textarea name="message-text" placeholder="Your message goes here. Thank you for writing us!" class="control container" id="message-text" cols="30" rows="10"
+                <textarea name="message-text" placeholder="Your message goes here. Thank you for writing us!"
+                          class="control container" id="message-text" cols="30" rows="10"
                           required></textarea>
             </div>
             <div class="input-wrapper">

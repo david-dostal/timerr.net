@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/ie.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ie.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="js/polyfills.min.js"></script>
+    <script type="text/javascript" src="js/vendor/polyfills.min.js"></script>
     <script type="text/javascript" src="js/common/time-functions.js"></script>
     <script type="text/javascript" src="js/common/google-maps-timezones.js"></script>
     <script type="text/javascript" src="js/apps/clock.js"></script>
@@ -32,13 +32,13 @@
 <section class="container">
     <div class="row column">
         <div class="timer">
-            <time datetime="2018-03-15T13:21:02" class="timer-time panel-primary container" id="timer-time">13:21:02</time>
+            <time datetime="2018-03-15T13:21:02" class="timer-time panel-primary container" id="timer-time">13:21:02
+            </time>
         </div>
         <div class="control-group">
             <div class="control-wrapper">
-                <select class="control container" id="timezone-select">
+                <select class="control container" id="timezone-select" autofocus>
                     <option disabled selected>Select a timezone:</option>
-                    <!--
                     <optgroup label="Africa">
                         <option value="5.19,-4.02">Abidjan, Côte d'Ivoire</option>
                         <option value="5.33,-0.13">Accra, Ghana</option>
@@ -283,7 +283,6 @@
                         <option value="56.51,60.36">Yekaterinburg, Russia</option>
                         <option value="40.11,44.3">Yerevan, Armenia</option>
                     </optgroup>
-
                     <optgroup label="Atlantic">
                         <option value="37.44,-25.4">Azores, Portugal</option>
                         <option value="32.17,-64.46">Bermuda</option>
@@ -308,7 +307,7 @@
                         <option value="-37.49,144.58">Melbourne, Australia</option>
                         <option value="-31.57,115.51">Perth, Australia</option>
                         <option value="-33.52,151.13">Sydney, Australia</option>
-                    </optgroup>-->
+                    </optgroup>
                     <optgroup label="Europe">
                         <option value="52.22,4.54">Amsterdam, Netherlands</option>
                         <option value="42.3,1.31">Andorra</option>
