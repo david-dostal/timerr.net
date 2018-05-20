@@ -48,7 +48,6 @@ select::-ms-value {
 }
 
 .input-submit {
-  padding: 0.5rem 1rem;
   text-align: left;
   width: auto;
 }
@@ -66,10 +65,6 @@ select::-ms-value {
   .control-secondary {
     font-size: 1rem;
     line-height: 1rem;
-  }
-
-  .input-submit {
-    padding: 1rem 2rem;
   }
 }
 

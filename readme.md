@@ -20,8 +20,9 @@ Budík též ukazuje čas, který do jeho spuštění zbývá.
 lokaci. Bez zvolení lokace ukazují čas tam, kde se právě nachází.
 
 Pomocí [kontaktního formuláře](http://timerr.net/contact-us.html) může uživatel zanechat
-zprávu, připomínku, nahlásit bug, nebo si jenom pokecat. Na stránce [about](http://timerr.net/about.html)
-nalezne informace o aplikaci, jako jsou použité technologie či changelog.
+zprávu, připomínku, nahlásit bug, nebo si jenom pokecat. Na stránce
+[about](http://timerr.net/about.html) nalezne informace o aplikaci, jako jsou použité
+technologie či changelog.
 
 Spuštění
 ========
@@ -50,9 +51,11 @@ Jednotlivé požadavky semestrální práce jsem, pokud mi něco neuniklo, všec
 je responzivní, obsahuje spoustu skriptů, které řeší interaktivitu, pomocí ajaxu se dotazuje
 na data o časových zónách a posílá na server zprávy od uživatele. Součástí stránky jsou i
 komponenty v Reactu, které řeší vykreslování tabulky s mezičasy, tabulka si udržuje a reaguje
-na stav a předává data do dětské komponenty. Aplikace ukládá informace o posledních nastavených
-hodnotách do localStorage a tyto hodnoty použije jako výchozí při příštím načtení. Taktéž by
-aplikace měla splňovat požadavky z předchozích checkpointů.
+na stav a předává data do dětské komponenty a umožňuje vybrané řádky smazat. Aplikace ukládá
+informace o posledních nastavených hodnotách do localStorage a tyto hodnoty použije jako
+výchozí při příštím načtení. Taktéž by aplikace měla splňovat zbytek celkových požadavků na
+práci – minimálně 5 obrazovek, hlavní menu, seznam s akcemi, funkčnost v moderních
+prohlížečích, ...
 
 Problémy a výzvy
 ----------------
@@ -87,20 +90,30 @@ Použité technologie a zdroje
 ============================
 Produkce
 --------
-- [React a ReactDom](https://reactjs.org/) – Komponenty pro zobrazování informací o mezičasech. 
+- [React a ReactDom](https://reactjs.org/)
+  – Komponenty pro zobrazování informací o mezičasech. 
 - [Google Maps Timezone API](https://developers.google.com/maps/documentation/timezone)
   – Získávání informací o časových pásmech
-- [Beeceptor](https://beeceptor.com/) – Mocking api pro posílání zpráv.
-- [HTML5 Shiv](https://github.com/aFarkas/html5shiv) – Zobrazování HTML5 elementů v IE.
-- [Respond.js](https://github.com/scottjehl/Respond) – Polyfill pro jednoduché media queries v IE.
-- [REM unit polyfill](http://chuckcarpenter.github.io/REM-unit-polyfill/) – Polyfill jednotek `rem` v IE.
-- [Vminpoly](https://github.com/saabi/vminpoly) – Polyfill pro jednotky `vh` pro IE.
-- [PadStart polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) – Polyfill pro podporu funkce `padStart`.
-- [IANA Timezone database](https://www.iana.org/time-zones) - Informace o umístění jednotlivých časových zón.
-- [Unicode Common Locale Data Repository](http://cldr.unicode.org/) – Seznam časových pásem
-  podporovaných v Google Timezone API (odkaz na [seznam časových zón](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml)).
+- [Beeceptor](https://beeceptor.com/)
+  – Mocking api pro posílání zpráv.
+- [HTML5 Shiv](https://github.com/aFarkas/html5shiv)
+  – Zobrazování HTML5 elementů v IE.
+- [Respond.js](https://github.com/scottjehl/Respond)
+  – Polyfill pro jednoduché media queries v IE.
+- [REM unit polyfill](http://chuckcarpenter.github.io/REM-unit-polyfill/)
+  – Polyfill jednotek `rem` v IE.
+- [Vminpoly](https://github.com/saabi/vminpoly)
+  – Polyfill pro jednotky `vh` pro IE.
+- [PadStart polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
+  – Polyfill pro podporu funkce `padStart`.
+- [IANA Timezone database](https://www.iana.org/time-zones)
+  – Informace o umístění jednotlivých časových zón.
+- [Unicode Common Locale Data Repository](http://cldr.unicode.org/)
+  – Seznam časových pásem podporovaných v Google Timezone API
+  ([seznam časových zón](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml) zde).
 
-Veškeré soubory, které nejsou vlastní (knihovny, polyfilly apod.) se nachází ve složce [scripts/vendor](./js/vendor).
+Veškeré soubory, které nejsou vlastní (knihovny, polyfilly apod.) se nachází ve složce
+[scripts/vendor](./scripts/vendor).
 
 Vývoj
 -----

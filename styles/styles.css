@@ -136,7 +136,6 @@ select::-ms-value {
     box-shadow: none; }
 
 .input-submit {
-  padding: 0.5rem 1rem;
   text-align: left;
   width: auto; }
 
@@ -150,10 +149,7 @@ select::-ms-value {
 
   .control-secondary {
     font-size: 1rem;
-    line-height: 1rem; }
-
-  .input-submit {
-    padding: 1rem 2rem; } }
+    line-height: 1rem; } }
 .col-50 {
   width: 50%;
   float: left; }
