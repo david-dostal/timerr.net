@@ -19,13 +19,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     resetButtonElement = document.getElementById('button-reset');
     formElement = document.getElementById('timer-time');
 
-    if(localStorage && localStorage.getItem('timer-start-time') === null) {
+    if (!LocalStorage.hasValue('timer-start-time')) {
         saveTimerTime();
     }
-    if(localStorage) {
-        let {h, m, s} = JSON.parse(localStorage.getItem('timer-start-time'));
-        timer.reset(toMilliseconds(h, m, s));
-    }
+    loadTimerTime();
 
     new NumberInput(hoursInput);
     new NumberInput(minutesInput);
@@ -38,7 +35,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function timerTick(remaining) {
-    //console.log(decomposeTime(remaining));
     updateUi(remaining);
 }
 
@@ -68,11 +64,16 @@ function startTimer() {
     }
 }
 
-function saveTimerTime() {
-    if(localStorage) {
-        let [h, m, s] = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)];
-        localStorage.setItem('timer-start-time', JSON.stringify({h: h, m: m, s: s}));
+function loadTimerTime() {
+    if (LocalStorage.hasValue('timer-start-time')) {
+        let {h, m, s} = LocalStorage.tryLoad('timer-start-time');
+        timer.reset(toMilliseconds(h, m, s));
     }
+}
+
+function saveTimerTime() {
+    let time = {h: parseInt(hoursInput.value), m: parseInt(minutesInput.value), s: parseInt(secondsInput.value)};;
+    LocalStorage.trySave('timer-start-time', time);
 }
 
 
@@ -91,7 +92,6 @@ function timerCompleted() {
 }
 
 function updateUi(millis) {
-    //console.log(millis);
     millis = Math.round(millis / 1000) * 1000;
     let {h, m, s, _} = decomposeTime(millis);
     hoursInput.value = h.toString().padStart(2, '0');

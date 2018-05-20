@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title>Timerr.net</title>
     <link rel="stylesheet" href="styles/styles.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--[if lt IE 9]>
@@ -12,6 +13,7 @@
     <script type="text/javascript" src="scripts/vendor/polyfills.min.js"></script>
     <script type="text/javascript" src="scripts/common/number-input.min.js"></script>
     <script type="text/javascript" src="scripts/common/time-functions.min.js"></script>
+    <script type="text/javascript" src="scripts/common/localStorage.min.js"></script>
     <script type="text/javascript" src="scripts/apps/alarm.min.js"></script>
     <script type="text/javascript" src="scripts/gui/alarm-gui.min.js"></script>
 </head>
@@ -38,7 +40,7 @@
                        autofocus required>
                 <span class="timer-divider">:</span>
                 <input type="text" pattern="[0-5]?[0-9]" maxlength="2" min="0" max="59" name="minutes-input"
-                       id="minutes-input" value="02" required>
+                       id="minutes-input" value="15" required>
             </form>
         </div>
         <div class="control-group">

@@ -12,14 +12,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     remainingElement = document.getElementById('remaining-time');
     formElement = document.getElementById('timer-time');
 
-    if(localStorage && localStorage.getItem('alarm-target-time') === null) {
+    if (!LocalStorage.hasValue('alarm-target-time')) {
         saveAlarmTarget();
     }
-    if(localStorage) {
-        let {h, m} = JSON.parse(localStorage.getItem('alarm-target-time'));
-        hoursInput.value = h.toString().padStart(2, '0');
-        minutesInput.value = m.toString().padStart(2, '0');
-    }
+    loadAlarmTarget();
 
     new NumberInput(hoursInput);
     new NumberInput(minutesInput);
@@ -44,11 +40,17 @@ function formatRemaining(remaining) {
     return `${h}h ${m}m remaining`
 }
 
-function saveAlarmTarget() {
-    if(localStorage) {
-        let [h, m] = [parseInt(hoursInput.value), parseInt(minutesInput.value)];
-        localStorage.setItem('alarm-target-time', JSON.stringify({h: h, m: m}));
+function loadAlarmTarget() {
+    if (LocalStorage.hasValue('alarm-target-time')) {
+        let {h, m} = LocalStorage.tryLoad('alarm-target-time');
+        hoursInput.value = h.toString().padStart(2, '0');
+        minutesInput.value = m.toString().padStart(2, '0');
     }
+}
+
+function saveAlarmTarget() {
+    let time = {h: parseInt(hoursInput.value), m: parseInt(minutesInput.value)};
+    LocalStorage.trySave('alarm-target-time', time);
 }
 
 function enableClick() {
@@ -72,7 +74,7 @@ function enableClick() {
 
 function inputsValid() {
     let valid = hoursInput.validity.valid && minutesInput.validity.valid;
-    if(!valid) {
+    if (!valid) {
         formElement.reportValidity();
     }
     return valid;

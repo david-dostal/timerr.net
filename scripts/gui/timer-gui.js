@@ -21,17 +21,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     resetButtonElement = document.getElementById('button-reset');
     formElement = document.getElementById('timer-time');
 
-    if (localStorage && localStorage.getItem('timer-start-time') === null) {
+    if (!LocalStorage.hasValue('timer-start-time')) {
         saveTimerTime();
     }
-    if (localStorage) {
-        var _JSON$parse = JSON.parse(localStorage.getItem('timer-start-time')),
-            h = _JSON$parse.h,
-            m = _JSON$parse.m,
-            s = _JSON$parse.s;
-
-        timer.reset(toMilliseconds(h, m, s));
-    }
+    loadTimerTime();
 
     new NumberInput(hoursInput);
     new NumberInput(minutesInput);
@@ -44,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function timerTick(remaining) {
-    //console.log(decomposeTime(remaining));
     updateUi(remaining);
 }
 
@@ -78,15 +70,20 @@ function startTimer() {
     }
 }
 
-function saveTimerTime() {
-    if (localStorage) {
-        var _ref2 = [parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value)],
-            h = _ref2[0],
-            m = _ref2[1],
-            s = _ref2[2];
+function loadTimerTime() {
+    if (LocalStorage.hasValue('timer-start-time')) {
+        var _LocalStorage$tryLoad = LocalStorage.tryLoad('timer-start-time'),
+            h = _LocalStorage$tryLoad.h,
+            m = _LocalStorage$tryLoad.m,
+            s = _LocalStorage$tryLoad.s;
 
-        localStorage.setItem('timer-start-time', JSON.stringify({ h: h, m: m, s: s }));
+        timer.reset(toMilliseconds(h, m, s));
     }
+}
+
+function saveTimerTime() {
+    var time = { h: parseInt(hoursInput.value), m: parseInt(minutesInput.value), s: parseInt(secondsInput.value) };;
+    LocalStorage.trySave('timer-start-time', time);
 }
 
 function resetClick() {
@@ -104,7 +101,6 @@ function timerCompleted() {
 }
 
 function updateUi(millis) {
-    //console.log(millis);
     millis = Math.round(millis / 1000) * 1000;
 
     var _decomposeTime = decomposeTime(millis),
