@@ -30,7 +30,8 @@ Ke spuštění aplikace nejsou potřeba žádné další závislosti, vše co je
 prohlížeč. Stačí tedy kliknout na [index.html](./index.html) a hned je možné stopovat.
 Pro některé funkčnosti (časové zóny, odeslání zprávy) je potřeba být připojen k internetu.
 
-Live verze aplikace je dostupná na adrese [timerr.net](http://timerr.net).
+Live verze aplikace je dostupná na adrese [timerr.net](http://timerr.net), kód je dostupný
+i v [repozitáři na GitHubu](https://github.com/david-dostal/timerr.net).
 
 Shrnutí
 =======
