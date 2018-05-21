@@ -140,6 +140,7 @@ table {
 }
 
 /* Navigation */
+
 .navigation {
   .menu, .logo {
     margin: 0;
@@ -261,4 +262,52 @@ table {
 
 .panel-primary, .panel-secondary {
   text-align: center;
+}
+
+/* Other stuff */
+.content {
+  @include container();
+}
+
+.timer-controls {
+  @include row();
+  @include column();
+}
+
+.timer-time {
+  @include container();
+}
+
+.header {
+  @include row();
+}
+
+.navigation {
+  @include column();
+
+  a {
+    @include container();
+  }
+}
+
+.control {
+  @include container();
+}
+
+.footer {
+  @include container();
+}
+
+.copyright {
+  @include row();
+  @include column();
+}
+
+.content-group {
+  @include row();
+  @include column();
+}
+
+.panel-text {
+  @include container();
 }

@@ -18,23 +18,23 @@
     <script type="text/javascript" src="scripts/gui/alarm-gui.min.js"></script>
 </head>
 <body class="page">
-<header class="header row">
-    <nav class="navigation column">
-        <h1 class="logo"><a href="index.html" class="container">timerr.net</a></h1>
+<header class="header">
+    <nav class="navigation">
+        <h1 class="logo"><a href="index.html">timerr.net</a></h1>
         <ul class="menu">
-            <li><a href="index.html" class="container">Stopwatch</a></li>
-            <li><a href="timer.html" class="container">Timer</a></li>
-            <li><a href="alarm.html" class="container">Alarm</a></li>
-            <li><a href="clock.html" class="container">Clock</a></li>
-            <li><a href="about.html" class="container">About</a></li>
-            <li><a href="contact-us.html" class="container">Contact us</a></li>
+            <li><a href="index.html">Stopwatch</a></li>
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="alarm.html">Alarm</a></li>
+            <li><a href="clock.html">Clock</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact-us.html">Contact us</a></li>
         </ul>
     </nav>
 </header>
-<section class="container">
-    <div class="row column">
+<section class="content">
+    <div class="timer-controls">
         <div class="timer">
-            <form class="timer-time timer-input-group panel-primary container" id="timer-time">
+            <form class="timer-time timer-input-group panel-primary" id="timer-time">
                 <input type="text" pattern="(0[0-9]|1[0-9]|2[0-3]|[0-9])" min="0" max="23" maxlength="2" name="hours-input"
                        id="hours-input" value="13" class="timer-input"
                        autofocus required>
@@ -45,16 +45,16 @@
         </div>
         <div class="control-group">
             <div class="control-wrapper">
-                <button class="control control-primary container" id="button-enable">Set alarm</button>
+                <button class="control control-primary" id="button-enable">Set alarm</button>
             </div>
         </div>
         <div class="panel-secondary">
-            <p class="text-info container" id="remaining-time"></p>
+            <p class="text-info" id="remaining-time"></p>
         </div>
     </div>
 </section>
-<footer class="footer container">
-    <div class="row column">
+<footer class="footer">
+    <div class="copyright">
         Copyright &copy; 2018 David Dostal
     </div>
 </footer>

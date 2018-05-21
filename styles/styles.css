@@ -13,23 +13,6 @@ textarea {
   max-height: 100vh;
   font-family: inherit; }
 
-.container {
-  margin: 0;
-  padding: 0.5rem; }
-
-.row {
-  padding: 0.5rem; }
-
-.column {
-  max-width: 50rem;
-  margin: auto; }
-
-@media (min-width: 20rem) {
-  .container {
-    padding: 1rem; }
-
-  .row {
-    padding: 0.5rem 1rem; } }
 .menu {
   float: left; }
 
@@ -275,5 +258,81 @@ table {
 
 .panel-primary, .panel-secondary {
   text-align: center; }
+
+/* Other stuff */
+.content {
+  margin: 0;
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .content {
+      padding: 1rem; } }
+
+.timer-controls {
+  padding: 0.5rem;
+  max-width: 50rem;
+  margin: auto; }
+  @media (min-width: 20rem) {
+    .timer-controls {
+      padding: 0.5rem 1rem; } }
+
+.timer-time {
+  margin: 0;
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .timer-time {
+      padding: 1rem; } }
+
+.header {
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .header {
+      padding: 0.5rem 1rem; } }
+
+.navigation {
+  max-width: 50rem;
+  margin: auto; }
+  .navigation a {
+    margin: 0;
+    padding: 0.5rem; }
+    @media (min-width: 20rem) {
+      .navigation a {
+        padding: 1rem; } }
+
+.control {
+  margin: 0;
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .control {
+      padding: 1rem; } }
+
+.footer {
+  margin: 0;
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .footer {
+      padding: 1rem; } }
+
+.copyright {
+  padding: 0.5rem;
+  max-width: 50rem;
+  margin: auto; }
+  @media (min-width: 20rem) {
+    .copyright {
+      padding: 0.5rem 1rem; } }
+
+.content-group {
+  padding: 0.5rem;
+  max-width: 50rem;
+  margin: auto; }
+  @media (min-width: 20rem) {
+    .content-group {
+      padding: 0.5rem 1rem; } }
+
+.panel-text {
+  margin: 0;
+  padding: 0.5rem; }
+  @media (min-width: 20rem) {
+    .panel-text {
+      padding: 1rem; } }
 
 /*# sourceMappingURL=styles.css.map */

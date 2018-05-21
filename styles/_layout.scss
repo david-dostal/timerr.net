@@ -18,28 +18,26 @@ $container-padding-tight-half: 0.25rem;
   }
 }
 
-.container {
+@mixin container {
   margin: 0;
   padding: $container-padding-tight;
-}
 
-.row {
-  padding: $row-padding-tight;
-}
-
-.column {
-  max-width: $row-max-width;
-  margin: auto;
-}
-
-@media (min-width: 20rem) {
-  .container {
+  @media (min-width: 20rem) {
     padding: $container-padding-full;
   }
+}
 
-  .row {
+@mixin row {
+  padding: $row-padding-tight;
+
+  @media (min-width: 20rem) {
     padding: $row-padding-full;
   }
+}
+
+@mixin column {
+  max-width: $row-max-width;
+  margin: auto;
 }
 
 .menu {
