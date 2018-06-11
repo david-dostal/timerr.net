@@ -1,0 +1,51 @@
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: $text-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+@mixin logo {
+  margin: 0;
+  line-height: 1;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 2px $control-shadow;
+}

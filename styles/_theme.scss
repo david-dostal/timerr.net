@@ -15,22 +15,10 @@ $control-hover: #f4f4f4;
 $control-active: #e8e8e8;
 $control-shadow: rgba(100, 100, 100, 0.2);
 
-$border: #ddd;
+$border-color: #ddd;
 $error: #e56;
 
 $border-radius: 4px;
-
-body {
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
-  line-height: 1.5em;
-  color: $text-primary;
-}
-
-h1 {
-  font-size: 2rem;
-  text-shadow: 2px 2px 2px $control-shadow;;
-}
 
 .page {
   background-color: $primary-light;
@@ -49,19 +37,4 @@ h1 {
 .footer {
   background-color: $primary;
   color: $text-primary
-}
-
-.panel-primary {
-  background-color: $primary;
-  color: $text-primary
-}
-
-.panel-secondary {
-  background-color: inherit;
-  color: $text-primary
-}
-
-.panel-information {
-  background-color: $information;
-  color: $text-inverse;
 }

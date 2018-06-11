@@ -51,7 +51,11 @@ var LapTable = function (_React$Component) {
             this.setState(function (previousState) {
                 return {
                     lastNumber: previousState.lastNumber + 1,
-                    rows: previousState.rows.concat({ number: previousState.lastNumber + 1, lapTime: lapTime, totalTime: totalTime })
+                    rows: previousState.rows.concat({
+                        number: previousState.lastNumber + 1,
+                        lapTime: lapTime,
+                        totalTime: totalTime
+                    })
                 };
             });
         }
@@ -76,8 +80,9 @@ var LapTable = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            return React.createElement("table", { className: "lap-table panel-information" }, React.createElement("thead", { hidden: this.state.rows.length === 0 }, React.createElement("tr", null, React.createElement("th", null, "No."), React.createElement("th", null, "Lap"), React.createElement("th", null, "Total"), React.createElement("th", null))), React.createElement("tbody", { id: "lap-table" }, this.state.rows.map(function (row) {
-                return React.createElement(LapRow, { key: row.number, number: row.number, lapTime: row.lapTime, totalTime: row.totalTime, deleteClick: function deleteClick(n) {
+            return React.createElement("table", { className: "lap-table panel-information" }, React.createElement("thead", { hidden: this.state.rows.length === 0 }, React.createElement("tr", null, React.createElement("th", { className: "column-narrow" }, "No."), React.createElement("th", null, "Lap"), React.createElement("th", null, "Total"), React.createElement("th", { className: "column-narrow" }))), React.createElement("tbody", { id: "lap-table" }, this.state.rows.map(function (row) {
+                return React.createElement(LapRow, { key: row.number, number: row.number, lapTime: row.lapTime, totalTime: row.totalTime,
+                    deleteClick: function deleteClick(n) {
                         return _this2.handleDeleteClick(n);
                     } });
             })));

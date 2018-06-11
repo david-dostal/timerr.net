@@ -1,0 +1,174 @@
+@mixin hero-text {
+  text-shadow: 0.035em 0.035em $primary-darker;
+  text-align: center;
+  line-height: 1em;
+}
+
+@mixin hero-growing {
+  font-size: 16vw;
+
+  @media (min-width: $row-max-width) {
+    font-size: $row-max-width * 0.16;
+  }
+}
+
+@mixin hero-input {
+  @include hero-text;
+  background-color: transparent; // prevent outline overlap
+  outline: none; // remove input outline
+  border: none; // remove default input border
+  border-bottom: 5px solid $primary-darker;
+  border-radius: $border-radius;
+  font-family: inherit;
+  color: inherit;
+  @include transitions((background-color, border-bottom-color), 0.2s, ease-in-out);
+
+  &:focus, &:hover {
+    background-color: $primary-dark;
+  }
+
+  &:invalid {
+    outline: 2px solid $error;
+  }
+
+  &[readonly] {
+    border-bottom-color: transparent;
+  }
+
+  &[readonly]:hover, &[readonly]:focus {
+    background-color: transparent;
+  }
+}
+
+@mixin selection-light {
+  & ::selection {
+    background-color: $primary-highlight;
+    color: $text-primary;
+  }
+}
+
+@mixin panel-flat {
+  @include selection-light;
+  border-radius: $border-radius;
+  background-color: $primary;
+}
+
+@mixin elevated {
+  box-shadow: 4px 4px 4px $control-shadow;
+}
+
+@mixin card {
+  border-radius: $border-radius;
+  background-color: $information;
+  color: $text-inverse;
+}
+
+@mixin card-hover {
+  @include card;
+  @include elevated;
+  @include transitions((background-color, box-shadow), 0.1s, ease-in-out);
+
+  &:hover, &:focus {
+    background-color: $control-hover;
+  }
+
+  &:hover {
+    box-shadow: 6px 6px 6px $control-shadow;
+  }
+
+  &:active {
+    box-shadow: 2px 2px 2px $control-shadow;
+    background-color: $control-active;
+  }
+}
+
+@mixin stretch {
+  width: 100%;
+}
+
+@mixin control {
+  @include card-hover;
+  @include container;
+  border: none;
+  outline: none;
+
+  @media (min-width: 25rem) {
+    font-size: 1.5rem;
+  }
+
+  @include when-is(#{'select'}) {
+    &::-ms-value {
+      color: inherit;
+      background-color: transparent; // prevent selection highlight in IE
+    }
+  }
+}
+
+@mixin control-primary {
+  @include control;
+  font-weight: 600;
+
+  @media (min-width: 25rem) {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+}
+
+@mixin control-secondary {
+  @include control;
+  box-shadow: none;
+  width: auto;
+
+  &:hover, &:active {
+    box-shadow: none;
+  }
+
+  @media (min-width: 25rem) {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}
+
+@mixin scroll-container {
+  max-width: 100%;
+  overflow: auto;
+}
+
+@mixin text-like-input {
+  &[type=number]::-webkit-inner-spin-button,
+  &[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@mixin stick-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@mixin menu {
+  ul {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@mixin border-thin {
+  border: 1px solid $border-color;
+}

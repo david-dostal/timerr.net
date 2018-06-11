@@ -1,0 +1,11 @@
+@mixin transitions($properties, $duration, $interpolation: ease-in-out) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $interpolation;
+}
+
+@mixin when-is($selector) {
+  @at-root #{$selector + &} {
+    @content;
+  }
+}
