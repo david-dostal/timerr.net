@@ -7,15 +7,6 @@ About
 - [Alarm clock](http://timerr.net/alarm.html)
 - [World time](http://timerr.net/clock)
 
-Spuštění
-========
-Ke spuštění aplikace nejsou potřeba žádné další závislosti, vše co je potřeba je webový
-prohlížeč. Stačí tedy kliknout na [index.html](./index.html) a hned je možné stopovat.
-Pro některé funkčnosti (časové zóny, odeslání zprávy) je potřeba být připojen k internetu.
-
-Live verze aplikace je dostupná na adrese [timerr.net](http://timerr.net), kód je dostupný
-i v [repozitáři na GitHubu](https://github.com/david-dostal/timerr.net).
-
 Technologies
 ============================
 Production
